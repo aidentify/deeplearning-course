@@ -23,6 +23,7 @@ epoch_num = 10
 --[[
 -- 네트워크 옵션
 ]]--
+image_size = 32
 class_num = 10
 
 
@@ -49,9 +50,9 @@ print(#val_img)
 ]]--
 -- 입력 레이어
 local model = nn.Sequential();
-model:add(nn.View(32 * 32))
+model:add(nn.View(image_size * image_size))
 -- 히든 레이어
-model:add(nn.Linear(32 * 32, 128))
+model:add(nn.Linear(image_size * image_size, 128))
 model:add(nn.ReLU())
 -- 히든 레이어
 model:add(nn.Linear(128, 64))

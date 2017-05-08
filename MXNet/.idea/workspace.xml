@@ -27,21 +27,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mnist_classify_basic.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mnist_classify_basic.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mnist_classify_basic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1878">
-              <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="10" />
+            <state relative-caret-position="116">
+              <caret line="52" column="88" lean-forward="true" selection-start-line="52" selection-start-column="83" selection-end-line="52" selection-end-column="88" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mnist_classify_cnn.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mnist_classify_high.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mnist_classify_high.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-544">
+              <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mnist_classify_cnn.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mnist_classify_cnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="21" />
+            <state relative-caret-position="391">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,11 +76,14 @@
       <find>ㅡ애</find>
       <find>mlp</find>
       <find>metric</find>
+      <find>image</find>
+      <find>28</find>
     </findStrings>
     <replaceStrings>
       <replace>train_label</replace>
       <replace>val_label</replace>
       <replace>model</replace>
+      <replace>image_size</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -158,7 +171,7 @@
       <recent name="$PROJECT_DIR$/legacy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.mnist_classify_high">
+  <component name="RunManager" selected="Python.mnist_classify_cnn">
     <configuration default="false" name="mnist_classify" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -206,6 +219,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MXNet" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mnist_classify_high.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="mnist_classify_cnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MXNet" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mnist_classify_cnn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -344,16 +374,18 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.mnist_classify" />
       <item index="1" class="java.lang.String" itemvalue="Python.mnist_classify (1)" />
       <item index="2" class="java.lang.String" itemvalue="Python.mnist_classify_high" />
+      <item index="3" class="java.lang.String" itemvalue="Python.mnist_classify_cnn" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.mnist_classify_high" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.mnist_classify_cnn" />
         <item index="1" class="java.lang.String" itemvalue="Python.mnist_classify (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.mnist_classify" />
+        <item index="2" class="java.lang.String" itemvalue="Python.mnist_classify_high" />
+        <item index="3" class="java.lang.String" itemvalue="Python.mnist_classify" />
       </list>
     </recent_temporary>
   </component>
@@ -535,10 +567,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mnist_classify_cnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mnist_classify_high.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+        <state relative-caret-position="-544">
+          <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -555,16 +595,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mnist_classify_basic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1878">
-          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mnist_classify_cnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="21" />
+        <state relative-caret-position="116">
+          <caret line="52" column="88" lean-forward="true" selection-start-line="52" selection-start-column="83" selection-end-line="52" selection-end-column="88" />
           <folding />
         </state>
       </provider>

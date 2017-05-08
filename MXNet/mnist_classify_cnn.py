@@ -24,6 +24,7 @@ epoch_num = 10
 '''
 네트워크 옵션
 '''
+image_size = 28
 class_num = 10
 
 
@@ -49,7 +50,7 @@ print('label: %s' % (train_label[0:10]))
 
 # 데이터 이터레이터 생성
 def to4d(img):
-    return img.reshape(img.shape[0], 1, 28, 28).astype(np.float32) / 255
+    return img.reshape(img.shape[0], 1, image_size, image_size).astype(np.float32) / 255
 
 # 훈련용 데이터 이터레이터
 train_iter = mx.io.NDArrayIter(to4d(train_img), train_label, batch_size, shuffle=True)
@@ -84,7 +85,7 @@ fc2 = mx.sym.FullyConnected(data=tanh3, num_hidden=class_num)
 model = mx.sym.SoftmaxOutput(data=fc2, name='softmax')
 
 # [시각화] 네트워크 시각화
-shape = {"data" : (batch_size, 1, 28, 28)}
+shape = {"data" : (batch_size, 1, image_size, image_size)}
 vis = mx.viz.plot_network(symbol=model, shape=shape)
 vis.render('mnist-cnn')
 

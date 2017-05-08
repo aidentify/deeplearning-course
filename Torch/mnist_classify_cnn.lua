@@ -23,6 +23,7 @@ epoch_num = 10
 --[[
 -- 네트워크 옵션
 ]]--
+image_size = 32
 class_num = 10
 
 
