@@ -68,10 +68,12 @@ data = mx.sym.Variable('data')
 # Conv 레이어
 conv1 = mx.sym.Convolution(data=data, kernel=(5,5), num_filter=20)
 tanh1 = mx.sym.Activation(data=conv1, act_type="tanh")
+# Pooling 레이어
 pool1 = mx.sym.Pooling(data=tanh1, pool_type="max", kernel=(2,2), stride=(2,2))
 # Conv 레이어
 conv2 = mx.sym.Convolution(data=pool1, kernel=(5,5), num_filter=50)
 tanh2 = mx.sym.Activation(data=conv2, act_type="tanh")
+# Pooling 레이어
 pool2 = mx.sym.Pooling(data=tanh2, pool_type="max", kernel=(2,2), stride=(2,2))
 # fully-connected 레이어
 flatten = mx.sym.Flatten(data=pool2)
