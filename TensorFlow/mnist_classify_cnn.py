@@ -61,20 +61,29 @@ MLP(Multi Layer Perceptron)
 '''
 # 입력 레이어
 x = tf.placeholder(tf.float32, [None, image_size, image_size])
-# 4-D shape (batch_size, num_channel, width, height)을 2-D (batch_size, num_channel*width*height)로 변환
-x_reshape = tf.reshape(x, [-1, image_size*image_size])
-# 히든 레이어
-W1 = tf.Variable(tf.truncated_normal([image_size*image_size, 128], stddev=1.0 / math.sqrt(float(image_size*image_size))))
-b1 = tf.Variable(tf.zeros([128]))
-h1 = tf.nn.relu(tf.matmul(x_reshape, W1) + b1)
-# 히든 레이어
-W2 = tf.Variable(tf.truncated_normal([128, 64], stddev=1.0 / math.sqrt(float(128))))
-b2 = tf.Variable(tf.zeros([64]))
-h2 = tf.nn.relu(tf.matmul(h1, W2) + b2)
+# 3-D shape (batch_size, width, height)을 4-D (batch_size, width, height, num_channel)로 변환
+x_reshape = tf.reshape(x, [-1, image_size, image_size, 1])
+# Conv 레이어
+W_conv1 = tf.Variable(tf.truncated_normal([5, 5, 1, 20], stddev=0.1))
+b_conv1 = tf.Variable(tf.zeros([20]))
+h_conv1 = tf.nn.tanh(tf.nn.conv2d(x_reshape, W_conv1, strides=[1, 1, 1, 1], padding='SAME') + b_conv1)
+# Pooling 레이어
+h_pool1 = tf.nn.max_pool(h_conv1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+# Conv 레이어
+W_conv2 = tf.Variable(tf.truncated_normal([5, 5, 20, 50], stddev=0.1))
+b_conv2 = tf.Variable(tf.zeros([50]))
+h_conv2 = tf.nn.tanh(tf.nn.conv2d(h_pool1, W_conv2, strides=[1, 1, 1, 1], padding='SAME') + b_conv2)
+# Pooling 레이어
+h_pool2 = tf.nn.max_pool(h_conv2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+# fully-connected 레이어
+W_fc1 = tf.Variable(tf.truncated_normal([50*7*7, 500], stddev=0.1))
+b_fc1 = tf.Variable(tf.zeros([500]))
+h_pool2_flat = tf.reshape(h_pool2, [-1, 50*7*7])
+h_fc1 = tf.nn.tanh(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
 # 출력 레이어
-W3 = tf.Variable(tf.truncated_normal([64, class_num], stddev=1.0 / math.sqrt(float(64))))
-b3 = tf.Variable(tf.zeros([class_num]))
-model = tf.matmul(h2, W3) + b3
+W_fc2 = tf.Variable(tf.truncated_normal([500, class_num], stddev=0.1))
+b_fc2 = tf.Variable(tf.zeros([class_num]))
+model = tf.matmul(h_fc1, W_fc2) + b_fc2
 
 # 목표 출력
 y_ = tf.placeholder(tf.int64, [None])
@@ -106,6 +115,7 @@ for step in range(step_num):
   if (batch_num+1) * batch_size <= train_img.shape[0]:
     batch_xs = train_img[shuffle_index[batch_num*batch_size:(batch_num+1)*batch_size]]
     batch_ys = train_label[shuffle_index[batch_num*batch_size:(batch_num+1)*batch_size]]
+
     _, loss_value = sess.run([train_op, loss], feed_dict={x: batch_xs, y_: batch_ys})
 
     if step % 100 == 0:

@@ -61,7 +61,7 @@ MLP(Multi Layer Perceptron)
 '''
 # 입력 레이어
 x = tf.placeholder(tf.float32, [None, image_size, image_size])
-# 4-D shape (batch_size, num_channel, width, height)을 2-D (batch_size, num_channel*width*height)로 변환
+# 3-D shape (batch_size, width, height)을 2-D (batch_size, num_channel*width*height)로 변환
 x_reshape = tf.reshape(x, [-1, image_size*image_size])
 # 히든 레이어
 W1 = tf.Variable(tf.truncated_normal([image_size*image_size, 128], stddev=1.0 / math.sqrt(float(image_size*image_size))))

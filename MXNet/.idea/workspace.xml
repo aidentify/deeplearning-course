@@ -52,8 +52,8 @@
       <file leaf-file-name="mnist_classify_cnn.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mnist_classify_cnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+            <state relative-caret-position="713">
+              <caret line="84" column="54" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="84" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -559,8 +559,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mnist_classify_cnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        <state relative-caret-position="713">
+          <caret line="84" column="54" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="84" selection-end-column="54" />
           <folding />
         </state>
       </provider>
