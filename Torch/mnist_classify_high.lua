@@ -1,5 +1,5 @@
 --[[
-MNIST classification in low level API
+MNIST classification in high level API
 
 @author socurites@gmail.com
 ]]--

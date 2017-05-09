@@ -1,5 +1,5 @@
 --[[
-MNIST classification in low level API
+MNIST classification with CNN
 
 @author socurites@gmail.com
 ]]--

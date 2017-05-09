@@ -18,10 +18,10 @@
       <file leaf-file-name="mnist_classify_high.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mnist_classify_high.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="113" column="9" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="71" />
+            <state relative-caret-position="46">
+              <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
               <folding>
-                <element signature="e#89#126#0" expanded="true" />
+                <element signature="e#90#127#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -30,21 +30,23 @@
       <file leaf-file-name="mnist_classify_vis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mnist_classify_vis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="46">
+              <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
               <folding>
-                <element signature="e#89#126#0" expanded="true" />
+                <element signature="e#103#140#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="summary.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Works/Python/TensorFlow/local/lib/python2.7/site-packages/tensorflow/python/summary/summary.py">
+      <file leaf-file-name="mnist_classify_cnn.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mnist_classify_cnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="120" column="15" lean-forward="false" selection-start-line="120" selection-start-column="14" selection-end-line="120" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="3082">
+              <caret line="134" column="71" lean-forward="false" selection-start-line="134" selection-start-column="71" selection-end-line="134" selection-end-column="71" />
+              <folding>
+                <element signature="e#89#126#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,6 +88,7 @@
       <list>
         <option value="$PROJECT_DIR$/legacy/fully_connected_feed_step_1.py" />
         <option value="$PROJECT_DIR$/mnist_classify_basic.py" />
+        <option value="$PROJECT_DIR$/mnist_classify_cnn.py" />
         <option value="$PROJECT_DIR$/mnist_classify_high.py" />
         <option value="$PROJECT_DIR$/mnist_classify_vis.py" />
       </list>
@@ -388,7 +391,7 @@
         <state relative-caret-position="2461">
           <caret line="113" column="9" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="71" />
           <folding>
-            <element signature="e#89#126#0" expanded="true" />
+            <element signature="e#90#127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -398,7 +401,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#89#126#0" expanded="true" />
+            <element signature="e#103#140#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -450,6 +453,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -463,16 +467,6 @@
     <entry file="file://$PROJECT_DIR$/legacy/getting_started_contrib.py" />
     <entry file="file://$PROJECT_DIR$/legacy/fully_connected_feed_step_1.py" />
     <entry file="file://$PROJECT_DIR$/legacy/mnist.py" />
-    <entry file="file://$PROJECT_DIR$/mnist_classify_high.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="113" column="9" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="71" />
-          <folding>
-            <element signature="e#89#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Works/Python/TensorFlow/local/lib/python2.7/site-packages/tensorflow/python/summary/summary.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -481,12 +475,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mnist_classify_vis.py">
+    <entry file="file://$PROJECT_DIR$/mnist_classify_cnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="3082">
+          <caret line="134" column="71" lean-forward="false" selection-start-line="134" selection-start-column="71" selection-end-line="134" selection-end-column="71" />
           <folding>
             <element signature="e#89#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mnist_classify_high.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding>
+            <element signature="e#90#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mnist_classify_vis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+          <folding>
+            <element signature="e#103#140#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,6 +1,6 @@
 #coding:utf-8
 """
-MNIST classification in low level API
+MNIST classification with Tensorboard visualization
 
 @author socurites@gmail.com
 """
