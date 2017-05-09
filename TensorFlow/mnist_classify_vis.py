@@ -81,9 +81,6 @@ y_ = tf.placeholder(tf.int64, [None])
 y_ = tf.to_int64(y_)
 
 
-# summary histogram for W
-tf.summary.histogram('histogram', W1)
-
 '''
 훈련하기
 '''
@@ -99,8 +96,37 @@ train_op = optimizer.minimize(loss, global_step=global_step)
 # 세션 생성
 sess = tf.InteractiveSession()
 
+
+"""
+텐서보드 메트릭 summary
+"""
+# [텐서보드] summary 이미지 for
+train_img_reshape = tf.reshape(train_img, [-1, 28, 28, 1])
+tf.summary.image('input', train_img_reshape, max_outputs=10)
+
+# [텐서보드] summary 히스토그램 for W1
+tf.summary.histogram('histogram_W1', W1)
+
+# [텐서보드] summary 스칼라 for W
+mean = tf.reduce_mean(W1)
+stddev = tf.sqrt(tf.reduce_mean(tf.square(W1 - mean)))
+tf.summary.scalar('mean_W1', mean)
+tf.summary.scalar('stddev_W1', stddev)
+tf.summary.scalar('max_W1', tf.reduce_max(W1))
+tf.summary.scalar('min_W1', tf.reduce_min(W1))
+
+# summary 스칼라 for loss
+tf.summary.scalar('loss', loss)
+
+# 모든 summary를 하나의 Operation으로 병합
+merged_summary = tf.summary.merge_all()
+
+
 # 글로벌 파라미터 초기화
 tf.global_variables_initializer().run()
+
+# 텐서보드 시각화를 위한 summary 정보를 파일로 저장할 writer 생성
+train_writer = tf.summary.FileWriter('/tmp/deeplearing_course/tensorboard/', sess.graph)
 
 # 학습하기
 batch_num = 0
@@ -109,7 +135,10 @@ for step in range(step_num):
   if (batch_num+1) * batch_size <= train_img.shape[0]:
     batch_xs = train_img[shuffle_index[batch_num*batch_size:(batch_num+1)*batch_size]]
     batch_ys = train_label[shuffle_index[batch_num*batch_size:(batch_num+1)*batch_size]]
-    _, loss_value = sess.run([train_op, loss], feed_dict={x: batch_xs, y_: batch_ys})
+    _, loss_value, summary = sess.run([train_op, loss,merged_summary], feed_dict={x: batch_xs, y_: batch_ys})
+
+    # summary 정보를 파일로 저장
+    train_writer.add_summary(summary, step)
 
     if step % 100 == 0:
       print('Step %d: loss = %.5f' % (step, loss_value))
@@ -118,6 +147,12 @@ for step in range(step_num):
       batch_num = 0
       shuffle(shuffle_index)
 
+
+# summary writer 닫기
+train_writer.close()
+
+# 텐서보드 실행: $ tensorboard --logdir=/tmp/deeplearing_course/tensorboard/
+# 텐서보드 접속: http://localhost:6006
 
 '''
 평가하기
