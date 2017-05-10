@@ -46,7 +46,7 @@ print(#val_img)
 
 --[[
 -- 네트워크 정의
--- MLP(Multi Layer Perceptron)
+-- CNN(Convolution Neural Network)
 ]]--
 -- 입력 레이어
 local model = nn.Sequential();

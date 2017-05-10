@@ -57,7 +57,7 @@ val_img = val_img.astype(np.float32) / 255
 
 '''
 네트워크 정의
-MLP(Multi Layer Perceptron)
+CNN(Convolution Neural Network)
 '''
 # 입력 레이어
 x = tf.placeholder(tf.float32, [None, image_size, image_size])

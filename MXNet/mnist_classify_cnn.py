@@ -60,7 +60,7 @@ val_iter = mx.io.NDArrayIter(to4d(val_img), val_label, batch_size)
 
 '''
 네트워크 정의
-MLP(Multi Layer Perceptron)
+CNN(Convolution Neural Network)
 '''
 # 입력 레이어
 data = mx.sym.Variable('data')
