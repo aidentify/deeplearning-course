@@ -5,6 +5,12 @@
 * MXNet
 * TensorFlow
 
+
+## data
+MNIST 필기체 분류 학습을 위한 훈련 데이터셋과 평가를 위한 평가 데이터셋으로 구성된다. 
+* MNIST/
+..*
+
 ## Torch
 
 ## MXNet
