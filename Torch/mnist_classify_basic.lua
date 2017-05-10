@@ -72,11 +72,13 @@ local theta, gradTheta = model:getParameters()
 for epoch = 1, epoch_num do
   for batch_num = 1, train_img:size(1)/batch_size, batch_size do
     gradTheta:zero()
-    local predictions = model:forward(train_img[{ {batch_num, batch_num + batch_size} }])
-    local loss = criterion:forward(predictions, train_label[{ {batch_num, batch_num + batch_size} }])
+    local startBatch = batch_num
+    local endBatch = batch_num + batch_size
+    local predictions = model:forward(train_img[{ {startBatch, endBatch} }])
+    local loss = criterion:forward(predictions, train_label[{ {startBatch, endBatch} }])
     print(string.format("current loss: %.2f", loss))
-    local gradOutput = criterion:backward(predictions, train_label[{ {batch_num, batch_num + batch_size} }])
-    model:backward(train_img[{ {batch_num, batch_num + batch_size} }], gradOutput)
+    local gradOutput = criterion:backward(predictions, train_label[{ {startBatch, endBatch} }])
+    model:backward(train_img[{ {startBatch, endBatch} }], gradOutput)
     model:updateParameters(learning_rate)
   end    
 end

@@ -86,10 +86,12 @@ for epoch = 1, epoch_num do
   for batch_num = 1, train_img:size(1)/batch_size, batch_size do
     local function feval(x_new)
       gradTheta:zero()
-      local predictions = model:forward(train_img[{ {batch_num, batch_num + batch_size} }])
-      local loss = criterion:forward(predictions, train_label[{ {batch_num, batch_num + batch_size} }])    
-      local gradOutput = criterion:backward(predictions, train_label[{ {batch_num, batch_num + batch_size} }])
-      model:backward(train_img[{ {batch_num, batch_num + batch_size} }], gradOutput)
+      local startBatch = batch_num
+      local endBatch = batch_num + batch_size
+      local predictions = model:forward(train_img[{ {startBatch, endBatch} }])
+      local loss = criterion:forward(predictions, train_label[{ {startBatch, endBatch} }])    
+      local gradOutput = criterion:backward(predictions, train_label[{ {startBatch, endBatch} }])
+      model:backward(train_img[{ {startBatch, endBatch} }], gradOutput)
       return loss, gradTheta
     end
     
