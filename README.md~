@@ -15,10 +15,32 @@ MNIST 필기체 분류 학습을 위한 훈련 데이터셋과 평가를 위한 
   * Torch 텐서(Tensor) 포맷에 맞게 직렬화한 데이터
   * 이미지 shape: 1 x 32 x 32
 
+
 ## Torch
+MNIST 필기체 분류 학습을 Torch를 이용하여 구현한 예제
+* mnist_classify_basic.lua
+  * MLP(Multi Layer Perceptron)을 이용하여 구현한 예제
+* mnist_classify_high.lua
+  * 위의 예제를 optim 패키지를 이용하여 구현한 예제
+* mnist_classify_cnn.lua
+  * CNN(Convolution Neural Network)을 이용하여 구현한 예제
+
 
 ## MXNet
+MNIST 필기체 분류 학습을 MXNet를 이용하여 구현한 예제
+* mnist_classify_basic.lua
+  * MLP(Multi Layer Perceptron)을 이용하여 구현한 예제
+* mnist_classify_high.lua
+  * 위의 예제를 Module.fit()을 이용하여 구현한 예제
+* mnist_classify_cnn.lua
+  * CNN(Convolution Neural Network)을 이용하여 구현한 예제
+
 
 ## TensorFlow
-
-
+MNIST 필기체 분류 학습을 TensorFlow를 이용하여 구현한 예제
+* mnist_classify_high.lua
+  * MLP(Multi Layer Perceptron)을 이용하여 구현한 예제
+* mnist_classify_vis.lua
+  * 위의 예제에 텐서보드(TensorBoard) 시각화를 위해 tf.summary 메트릭을 적용한 예제
+* mnist_classify_cnn.lua
+  * CNN(Convolution Neural Network)을 이용하여 구현한 예제

@@ -22,6 +22,8 @@ MNIST 필기체 분류 학습을 Torch를 이용하여 구현한 예제
   * MLP(Multi Layer Perceptron)을 이용하여 구현한 예제
 * mnist_classify_high.lua
   * 위의 예제를 optim 패키지를 이용하여 구현한 예제
+* mnist_cnn_explained
+  * CNN 내부 처리 과정을 설명하는 예제
 * mnist_classify_cnn.lua
   * CNN(Convolution Neural Network)을 이용하여 구현한 예제
 
