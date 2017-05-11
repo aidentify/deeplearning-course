@@ -82,7 +82,7 @@ criterion = nn.ClassNLLCriterion()
 -- CNN(Convolution Neural Network)
 ]]--
 -- 8번째 이미지의 레이블
- =train_label[3]
+=train_label[3]
 -- 5
 
 -- 8번째 이미지 출력
