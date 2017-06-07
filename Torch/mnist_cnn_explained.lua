@@ -156,3 +156,30 @@ image.display { image = model:get(3).output, legend = 'pool(relu(y(1)))', scalee
 image.display { image = model:get(4).output, legend = 'y(2)', scaleeach=true }
 image.display { image = model:get(5).output, legend = 'relu(y(2))', scaleeach=true }
 image.display { image = model:get(6).output, legend = 'pool(relu(y(2)))', scaleeach=true }
+
+
+
+--[[
+-- 학습한 이후의 커널 필터
+]]--
+theta, gradTheta = model:getParameters()
+
+-- 학습하기
+for epoch = 1, epoch_num do
+  current_loss = 0
+  for batch_num = 1, train_img:size(1)/batch_size, batch_size do
+    function feval(x_new)
+      gradTheta:zero()
+      startBatch = batch_num
+      endBatch = batch_num + batch_size
+      predictions = model:forward(train_img[{ {startBatch, endBatch} }])
+      loss = criterion:forward(predictions, train_label[{ {startBatch, endBatch} }])    
+      gradOutput = criterion:backward(predictions, train_label[{ {startBatch, endBatch} }])
+      model:backward(train_img[{ {startBatch, endBatch} }], gradOutput)
+      return loss, gradTheta
+    end
+    _, fs = optim.sgd(feval, theta, sgd_params)
+    current_loss = current_loss + fs[1]
+    print(string.format("current loss: %.2f", current_loss))
+  end    
+end

@@ -10,8 +10,8 @@ require 'paths'
 function loadDataSet(path, file_name)
     local dataFile = paths.concat(path, file_name)
     local dataSet = torch.load(dataFile, 'ascii')
-    dataSet.data = dataSet.data:double()    
-    dataSet.labels = dataSet.labels:double()
+    dataSet.data = dataSet.data:double()      -- X
+    dataSet.labels = dataSet.labels:double()  -- target Y
 
     ---- normalize training data
     local mean = dataSet.data[{ {}, {1}, {}, {}  }]:mean()

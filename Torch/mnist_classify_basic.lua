@@ -16,7 +16,7 @@ batch_size = 100
 -- 학습률
 learning_rate = 0.1
 -- 훈련 에폭
-epoch_num = 10
+epoch_num = 30
 
 
 --[[
@@ -49,9 +49,13 @@ print(#val_img)
 ]]--
 -- 입력 레이어
 local model = nn.Sequential();
+-- 1x32x32 3차원을 1*32*32(1024) 1차원으로 변경
 model:add(nn.View(image_size * image_size))
 -- 히든 레이어
 model:add(nn.Linear(image_size * image_size, 128))
+model:add(nn.ReLU())
+-- 히든 레이어
+model:add(nn.Linear(128, 128))
 model:add(nn.ReLU())
 -- 히든 레이어
 model:add(nn.Linear(128, 64))
