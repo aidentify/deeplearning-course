@@ -99,12 +99,16 @@ end
 
 
 --[[
+-- 액션(action) 실행 및
+-- 환경(environment)으로부터
+-- 다음 상태(state) 관측
+-- 보상(reward) 획득
+]]--
+
 -- 액션 실행하기: 에이전트(바구니) x좌표 최대 1 pixel 이동
 -- 액션 1: 왼쪽으로 이동(-1 pixel)
 -- 액션 2: 그대로 있기(0 pixel)
 -- 액션 3: 오른쪽으로 이동(+1 pixel)
-]]--
-
 if (action == 1) then
     move = -1
 elseif (action == 2) then
@@ -112,13 +116,6 @@ elseif (action == 2) then
 else
     move = 1
 end
-
-
---[[
--- 환경(environment)으로부터
--- 다음 상태(state) 관측
--- 보상(reward) 획득
-]]--
 
 -- 공은 아래로 1칸 이동: (x,y) = (x, y+1)
 ballRow = ballRow + 1
@@ -154,6 +151,7 @@ else
     reward = 0
 end
 
+print(reward)
 
 --[[
 -- replay memory에 경험(experience) 저장하기
@@ -186,6 +184,8 @@ targets = torch.Tensor(chosenBatchSize, numAction):zero()
 randomIndex = math.random(1, memoryLength)
 memoryInput = memory[randomIndex]
 
+print(memoryInput)
+
 -- Q-value 계산
 if (memoryInput.gameOver) then
   target[memoryInput.action] = memoryInput.reward
@@ -194,12 +194,18 @@ else
    
   -- 상태 s에서 실행가능한 모든 액션 a에 대해 Q(s,a) 계산
   target = model:forward(memoryInput.inputState):clone()
+  
+  -- Q-value 갱신전
+  print(target)
    
   -- max_a' Q(s',a')계산
   nextStateMaxQ = torch.max(model:forward(memoryInput.nextState), 1)[1]
   
   -- 상태 s에 대해서 목표값(target)을  r + γmax a’ Q(s’, a’)로 설정
   target[memoryInput.action] = memoryInput.reward + discount * nextStateMaxQ
+  
+  -- Q-value 갱신전
+  print(target)
 end
 
 -- 미니배치 1번째 아이템 추가
@@ -235,4 +241,4 @@ end
 
 _, fs = optim.sgd(feval, theta, sgdParams)
 current_loss = current_loss + fs[1]
-print(string.format("current loss: %.2f", current_loss))
+print(string.format("current loss: %.4f", current_loss))
