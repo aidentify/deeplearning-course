@@ -225,8 +225,7 @@ for i = 1, epoch do
   
   
   for i=2, #episode, 2 do    
-    local transition = episode[i]    
-    
+    local transition = episode[i]        
     if ( i+1 <= #episode ) then
       transition.nextState = episode[i+1].nextState  
     end
